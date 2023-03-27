@@ -10,10 +10,18 @@ public class App
         
 //        demo2();
     	
-    	demo3();
+//    	demo3();
+    	
+    	demo4();
  
         
     }
+
+	private static void demo4() {
+		 ClassPathXmlApplicationContext ctx= new ClassPathXmlApplicationContext("com/examples/S01springcoreapp/springconfig4.xml");
+		 EmployeeDAO dao=( EmployeeDAO) ctx.getBean("empdao1");
+		 System.out.println(dao);
+	}
 
 	private static void demo3() {
 		 ClassPathXmlApplicationContext ctx= new ClassPathXmlApplicationContext("com/examples/S01springcoreapp/springconfig3.xml");
