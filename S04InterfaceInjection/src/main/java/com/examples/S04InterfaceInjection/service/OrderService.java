@@ -1,5 +1,5 @@
 package com.examples.S04InterfaceInjection.service;
 
-public class OrderService {
-
+public interface OrderService {
+	void placeOrder();
 }
