@@ -1,5 +1,7 @@
 package com.examples.S05SpringJdbcDemo;
 
+import java.util.List;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -12,11 +14,33 @@ public class App
     public static void main( String[] args )
     {
     	
-//    	create();
+    	create();
 //    	update();
-    	delete();
+//    	delete();
+//    	readOneEmployee();
+//    	readAllEmployees();
+    	
 		
     }
+
+	private static void readAllEmployees() {
+		ClassPathXmlApplicationContext ctx= new ClassPathXmlApplicationContext("com/examples/S05SpringJdbcDemo/springconfig.xml");
+		EmployeeDAO employeeDao =(EmployeeDAO) ctx.getBean("employeedao");
+   		List<Employee> employees = employeeDao.read();
+   		System.out.println(employees);
+		
+		
+	}
+
+	private static void readOneEmployee() {
+		ClassPathXmlApplicationContext ctx= new ClassPathXmlApplicationContext("com/examples/S05SpringJdbcDemo/springconfig.xml");
+    	
+    	EmployeeDAO employeeDao =(EmployeeDAO) ctx.getBean("employeedao");
+   		
+   		Employee employee = employeeDao.read(1);
+   		System.out.println(employee);
+		
+	}
 
 	private static void delete() {
 		ClassPathXmlApplicationContext ctx= new ClassPathXmlApplicationContext("com/examples/S05SpringJdbcDemo/springconfig.xml");
@@ -32,8 +56,8 @@ public class App
     	EmployeeDAO employeeDao =(EmployeeDAO) ctx.getBean("employeedao");
    		Employee emp = new Employee();
    		emp.setId(2);
-   		emp.setFirstName("Trigun");
-   		emp.setLastName("Gurumurti");
+   		emp.setFirstName("Rashmi");
+   		emp.setLastName("Patil");
    		
    		employeeDao.update(emp);
 		
@@ -45,9 +69,9 @@ public class App
     	
     	EmployeeDAO employeeDao =(EmployeeDAO) ctx.getBean("employeedao");
    		Employee emp = new Employee();
-   		emp.setId(2);
-   		emp.setFirstName("Trigun");
-   		emp.setLastName("G");
+   		emp.setId(4);
+   		emp.setFirstName("Rashmi");
+   		emp.setLastName("Patil");
    		employeeDao.create(emp);
 	}
 }
