@@ -27,11 +27,11 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User findUser(String email) {
-		User result = null;
+		User user = null;
 		List<?>users = hibernateTemplate.find("from User u where u.email=?0", email);
 		if(users!=null && users.size()>0)
-			result = (User) users.get(0);
-		return result;
+			user = (User) users.get(0);
+		return user;
 	}
 
 
