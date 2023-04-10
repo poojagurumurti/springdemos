@@ -1,13 +1,13 @@
-package com.example.S13SoringBootREST;
+package com.example.SpringbootREST;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class S13SoringBootRestApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(S13SoringBootRestApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
