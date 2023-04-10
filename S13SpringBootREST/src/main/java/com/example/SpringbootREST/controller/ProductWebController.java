@@ -1,4 +1,4 @@
-package com.example.S13SpringBootREST.controller;
+package com.example.SpringbootREST.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.S13SpringBootREST.entity.Product;
-import com.example.S13SpringBootREST.repository.ProductRepository;
+import com.example.SpringbootREST.entity.Product;
+import com.example.SpringbootREST.repository.ProductRepository;
 
 @Controller
 @RequestMapping("/products")
@@ -24,12 +24,10 @@ public class ProductWebController {
 		return "products";
 	}
 	
-	
 	@PostMapping
-	public String addProduct(@ModelAttribute("product") Product product,ModelMap model) {
+	public String addProduct(@ModelAttribute("product") Product product, ModelMap model) {
 		repo.save(product);
 		model.addAttribute("products",repo.findAll());
 		return "products";
 	}
-
 }
